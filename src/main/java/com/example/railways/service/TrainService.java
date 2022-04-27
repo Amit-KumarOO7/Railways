@@ -5,6 +5,7 @@ import com.example.railways.model.Train;
 public interface TrainService {
 
 
-	Train fetchTrainsByTrainNumber(String emailId);
+	Train fetchTrainsByTrainNumber(int trainNumber);
+	Train createAdmin(Train trainDetails);
 
 }
