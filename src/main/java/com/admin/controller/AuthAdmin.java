@@ -13,9 +13,7 @@ public class AuthAdmin {
     @Autowired
     AdminService adminService;
     @PostMapping("createAdmin")
-    public Admin createAdmin(@RequestBody Admin admin){
+    public Admin createAdmin(@RequestBody Admin admin) {
        return adminService.createAdmin(admin);
     }
-
-
 }
