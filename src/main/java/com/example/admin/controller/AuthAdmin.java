@@ -1,8 +1,8 @@
-package com.admin.controller;
+package com.example.admin.controller;
 
-import com.admin.model.Admin;
-import com.admin.response.AdminDetailsResponse;
-import com.admin.service.AdminService;
+import com.example.admin.model.AdminDetails;
+import com.example.admin.response.AdminDetailsResponse;
+import com.example.admin.service.AdminService;
 
 import antlr.collections.List;
 
@@ -24,7 +24,7 @@ public class AuthAdmin {
     @Autowired
     AdminService adminService;
     @PostMapping("createAdmin")
-    public ResponseEntity<Object> createAdmin(@RequestBody Admin admin){
+    public ResponseEntity<Object> createAdmin(@RequestBody AdminDetails admin){
 
    return new ResponseEntity<Object>( new AdminDetailsResponse(new Date(),"Admin added Successfully",adminService.createAdmin(admin)),HttpStatus.OK);
    
@@ -32,7 +32,7 @@ public class AuthAdmin {
    }
     
     @GetMapping("viewAdmins")
-    public ArrayList<Admin> getAdmin() {
+    public ArrayList<AdminDetails> getAdmin() {
     	return adminService.getAdmins();
     	
     }
