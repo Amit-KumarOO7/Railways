@@ -20,20 +20,15 @@ public class AuthAdmin {
     @Autowired
     AdminService adminService;
     @PostMapping("createAdmin")
-<<<<<<< HEAD
     public ResponseEntity<Object> createAdmin(@RequestBody Admin admin){
-       
-    	
-    	
+
    return new ResponseEntity<Object>( new AdminDetailsResponse(new Date(),"Admin added Successfully",adminService.createAdmin(admin)),HttpStatus.OK);
    
     
    }
 
 
-=======
-    public Admin createAdmin(@RequestBody Admin admin) {
-       return adminService.createAdmin(admin);
-    }
->>>>>>> 22ddb447dffb048e93ceb1891154b74fee8048d0
+
+
+
 }
