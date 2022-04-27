@@ -20,6 +20,7 @@ public class AuthAdmin {
     @Autowired
     AdminService adminService;
     @PostMapping("createAdmin")
+<<<<<<< HEAD
     public ResponseEntity<Object> createAdmin(@RequestBody Admin admin){
        
     	
@@ -30,4 +31,9 @@ public class AuthAdmin {
    }
 
 
+=======
+    public Admin createAdmin(@RequestBody Admin admin) {
+       return adminService.createAdmin(admin);
+    }
+>>>>>>> 22ddb447dffb048e93ceb1891154b74fee8048d0
 }
