@@ -41,7 +41,12 @@ public class UserDetails {
     @Column
     private @Getter
     @Setter
-    int age;
+    int uAge;
+
+    @Column
+    private @Getter
+    @Setter
+    String uPassword;
 
     @Column
     private @Getter

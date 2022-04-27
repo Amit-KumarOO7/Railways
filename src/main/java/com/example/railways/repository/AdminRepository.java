@@ -1,5 +1,5 @@
 package com.example.railways.repository;
 
-public class AdminRepository {
-
-}
+//public class AdminRepository {
+//
+//}
