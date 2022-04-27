@@ -1,3 +1,6 @@
+/**
+ * Author: Chandan Kumar
+ */
 package com.example.railways.entities;
 
 public class PaymentRequestEntity {
