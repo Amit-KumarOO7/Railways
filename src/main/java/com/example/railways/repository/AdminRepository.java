@@ -10,7 +10,7 @@ import com.example.railways.model.Train;
 public interface AdminRepository extends JpaRepository<Train, Long>{
 
 	
-	@Query("SELECT a FROM AdminDetails a WHERE a.emailId=?1")
+	@Query("SELECT a FROM Train a WHERE a.trainNumber=?1")
 	Train fetchTrainByTrainNumber(int trainNumber);
 
 }
