@@ -1,6 +1,6 @@
 package com.example.railways.controler;
 
-import com.example.railways.model.User;
+import com.example.railways.models.UserDetails;
 import com.example.railways.repository.UserFoundResponse;
 import com.example.railways.repository.UserRepository;
 import com.example.railways.response.NewUserResponse;
@@ -24,9 +24,9 @@ public class PostController {
     private UserRepository userRepository;
 
     @PostMapping("/createUser")
-    public ResponseEntity<Object> createUser(@RequestBody User user) {
+    public ResponseEntity<Object> createUser(@RequestBody UserDetails user) {
 
-        User u = userRepository.fetchByEmailId(user.getUEmailId());
+        UserDetails u = userRepository.fetchByEmailId(user.getUEmailId());
 
         if(u == null) {
             userSerive.addUser(user);
