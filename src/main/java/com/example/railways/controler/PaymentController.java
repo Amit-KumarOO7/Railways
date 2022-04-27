@@ -1,3 +1,6 @@
+/**
+ * Author: Chandan Kumar
+ */
 package com.example.railways.controler;
 
 import com.example.railways.entities.PaymentRequestEntity;
@@ -43,13 +46,13 @@ public class PaymentController {
 
     private String getRandomString() {
         String DOMAIN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-        StringBuilder salt = new StringBuilder();
-        Random rnd = new Random();
-        while (salt.length() < 24) {
-            int index = (int) (rnd.nextFloat() * DOMAIN.length());
-            salt.append(DOMAIN.charAt(index));
+        StringBuilder stringBuilder = new StringBuilder();
+        Random random = new Random();
+        while (stringBuilder.length() < 24) {
+            int index = (int) (random.nextFloat() * DOMAIN.length());
+            stringBuilder.append(DOMAIN.charAt(index));
         }
-        return salt.toString();
+        return stringBuilder.toString();
     }
 
     public boolean getPaymentSuccess() {
