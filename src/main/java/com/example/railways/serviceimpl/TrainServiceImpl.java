@@ -1,5 +1,7 @@
 package com.example.railways.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,12 @@ public class TrainServiceImpl implements TrainService{
 	public Train createAdmin(Train trainDetails) {
 		// TODO Auto-generated method stub
 		return AdminRepository.save(trainDetails);
+	}
+
+	@Override
+	public List<Train> fetchTrains() {
+		// TODO Auto-generated method stub
+		return AdminRepository.getTrains();
 	}
 
 	
