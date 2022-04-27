@@ -22,14 +22,20 @@ public class DeleteTicketController {
 
 	@DeleteMapping("/deleteTicket") 
 	public ResponseEntity<Object> deleteTicket(@RequestBody TicketDetails ticketDetails){
-    //     ArrayList<TicketDetails> t = ticketService.fetchTicket(ticketDetails.getuId());
-    //     if (ticketExists == null) {
-    //         ErrorResponse response = new ErrorResponse(new Date(), "Ticket does not exist", "400");
-    //         return new ResponseEntity<Object>(response, HttpStatus.OK);
-    //     }
-    //     ticketService.deleteTicket(ticketDetails.getuId(),ticketDetails.gettbId());
-    //     TicketDeleteResponse response = new TicketDeleteResponse(new Date(), "Ticket deleted Successfully", "200");
-    //         return new ResponseEntity<Object>(response, HttpStatus.OK);
-	// }
+        ArrayList<TicketDetails> ticketExists = ticketService.fetchTicket(ticketDetails.getuId());
+        boolean ticketE=false;
+        for(TicketDetails t : ticketExists){
+            if(t.gettbId()==ticketDetails.gettbId()){
+                ticketE=true;
+            }
+        }
+        if (ticketE==false || ticketExists == null) {
+            ErrorResponse response = new ErrorResponse(new Date(), "Ticket does not exist", "400");
+            return new ResponseEntity<Object>(response, HttpStatus.OK);
+        }
+        ticketService.deleteTicket(ticketDetails.getuId(),ticketDetails.gettbId());
+        TicketDeleteResponse response = new TicketDeleteResponse(new Date(), "Ticket deleted Successfully", "200");
+            return new ResponseEntity<Object>(response, HttpStatus.OK);
+	}
 	
 }
