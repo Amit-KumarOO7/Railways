@@ -1,15 +1,14 @@
 package com.example.railways.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@ToString()
 @Table(name = "route")
 public class RouteDetails {
     @Id
@@ -28,4 +27,12 @@ public class RouteDetails {
     private @Getter
     @Setter
     PlaceDetails toId;
+
+    private @Getter
+    @Setter
+    String trainName;
+
+    private @Getter
+    @Setter
+    LocalTime time;
 }

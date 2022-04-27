@@ -18,6 +18,10 @@ public class PlaceDetails {
     @Setter
     int pId;
 
+    public PlaceDetails(int pId) {
+        this.pId = pId;
+    }
+
     @Column
     private @Getter
     @Setter

@@ -1,16 +1,17 @@
 package com.example.railways.response;
 
-import com.example.railways.models.UserDetails;
+import com.example.railways.models.RouteDetails;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserCreatedResponse {
+public class GetRouteResponse {
     private @Getter
     @Setter
     Date timestamp;
@@ -25,5 +26,6 @@ public class UserCreatedResponse {
 
     private @Getter
     @Setter
-    UserDetails result;
+    List<RouteDetails> route;
 }
+
