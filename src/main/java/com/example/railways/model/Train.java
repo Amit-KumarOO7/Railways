@@ -9,28 +9,71 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Table(name = "train")
 public class Train {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private @Getter @Setter int trainNumber;
+    private int trainNumber;
 
     @Column
-    private @Getter @Setter String source;
+    private String source;
 
     @Column
-    private @Getter @Setter String destination;
+    private String destination;
 
     @Column
-    private @Getter @Setter Date arrivalTime;
+    private Date arrivalTime;
 
     @Column
-    private @Getter @Setter Date departureTime;
+    private Date departureTime;
+
+    Train() {
+    	
+    }
+    
+	public int getTrainNumber() {
+		return trainNumber;
+	}
+
+	public void setTrainNumber(int trainNumber) {
+		this.trainNumber = trainNumber;
+	}
+
+	public String getSource() {
+		return source;
+	}
+
+	public void setSource(String source) {
+		this.source = source;
+	}
+
+	public String getDestination() {
+		return destination;
+	}
+
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
+
+	public Date getArrivalTime() {
+		return arrivalTime;
+	}
+
+	public void setArrivalTime(Date arrivalTime) {
+		this.arrivalTime = arrivalTime;
+	}
+
+	public Date getDepartureTime() {
+		return departureTime;
+	}
+
+	public void setDepartureTime(Date departureTime) {
+		this.departureTime = departureTime;
+	}
+    
+    
 
 
 }
