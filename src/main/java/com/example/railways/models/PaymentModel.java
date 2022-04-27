@@ -16,8 +16,8 @@ public class PaymentModel {
     @Column(name = "amount", nullable = false)
     public int amount;
 
-    @Column(name = "uid", nullable = false)
-    public String uid;
+    @Column(name = "u_id", nullable = false)
+    public String u_id;
 
     @Column(name = "success", nullable = false)
     public int success;

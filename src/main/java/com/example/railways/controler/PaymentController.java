@@ -22,7 +22,7 @@ public class PaymentController {
         PaymentModel paymentModel = new PaymentModel();
 
         paymentModel.payment_id = getRandomString();
-        paymentModel.uid = paymentRequestEntity.uid;
+        paymentModel.u_id = paymentRequestEntity.u_id;
         paymentModel.amount = paymentRequestEntity.amount;
         paymentModel.payment_method = paymentRequestEntity.payment_method;
 
