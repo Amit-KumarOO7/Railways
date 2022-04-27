@@ -1,9 +1,12 @@
 package com.admin.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.type.TrueFalseType;
 
 @Entity
 public class Admin {
@@ -11,6 +14,7 @@ public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long adminId;
+    @Column(unique = true)
     private String adminUsername;
     private String adminPassword;
 

@@ -1,8 +1,8 @@
 package com.admin.response;
 
-import java.util.Date;
-
 import com.admin.model.Admin;
+
+import java.util.Date;
 
 public class AdminDetailsResponse {
 
