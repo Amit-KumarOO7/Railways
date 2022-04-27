@@ -25,6 +25,7 @@ public class PaymentController {
         PaymentModel paymentModel = new PaymentModel();
 
         paymentModel.payment_id = getRandomString();
+//        paymentModel.ticket_id = getRandomString();
         paymentModel.u_id = paymentRequestEntity.u_id;
         paymentModel.amount = paymentRequestEntity.amount;
         paymentModel.payment_method = paymentRequestEntity.payment_method;
@@ -38,7 +39,8 @@ public class PaymentController {
         paymentRepository.save(paymentModel);
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("payment-id", paymentModel.payment_id);
+        jsonObject.put("payment_id", paymentModel.payment_id);
+//        jsonObject.put("ticket_id", paymentModel.ticket_id);
         jsonObject.put("success", paymentModel.success);
 
         return jsonObject.toString();

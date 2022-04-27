@@ -27,4 +27,7 @@ public class PaymentModel {
 
     @Column(name = "payment_method", nullable = false)
     public String payment_method;
+
+//    @Column(name = "ticket_id", nullable = false)
+//    public String ticket_id;
 }
