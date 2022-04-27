@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AuthRepository extends JpaRepository<UserDetails, Long> {
-    @Query(value = "SELECT * FROM user_details a WHERE a.email_id=?1", nativeQuery=true)
-    UserDetails fetchAdminByEmail(String emailId);
+    @Query(value = "SELECT * FROM users a WHERE a.u_email_id=?1", nativeQuery = true)
+    UserDetails fetchByEmail(String emailId);
 }
