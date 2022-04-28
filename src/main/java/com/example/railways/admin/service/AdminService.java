@@ -9,4 +9,6 @@ public interface AdminService {
     public AdminDetails createAdmin(AdminDetails admin);
 
 	public ArrayList<AdminDetails> getAdmins();
+
+	public void deleteAdmin(String username);
 }

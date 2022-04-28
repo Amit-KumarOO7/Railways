@@ -25,4 +25,11 @@ public class AdminServiceImpl implements AdminService {
 		return  (ArrayList<AdminDetails>) adminRepo.findAll();
 	}
 	
+	@Override
+	public void deleteAdmin(String username) {
+		// TODO Auto-generated method stub
+		AdminDetails admin = adminRepo.getAdminByUsername(username);
+		  adminRepo.delete(admin);
+	}
+	
 }
