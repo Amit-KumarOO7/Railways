@@ -25,5 +25,10 @@ public class TicketServiceImpl implements TicketService {
 
     }
 
+    @Override
+    public int getTicketsAvailable(int trainNumber) {
+        return 0;
+    }
+
 
 }
