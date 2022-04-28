@@ -3,6 +3,7 @@ package com.example.railways.admin.serviceImpl;
 import com.example.railways.admin.model.AdminDetails;
 import com.example.railways.admin.repository.AdminRepo;
 import com.example.railways.admin.service.AdminService;
+import com.example.railways.exceptions.InvalidRequestException;
 
 import java.util.ArrayList;
 
@@ -29,7 +30,10 @@ public class AdminServiceImpl implements AdminService {
 	public void deleteAdmin(String username) {
 		// TODO Auto-generated method stub
 		AdminDetails admin = adminRepo.getAdminByUsername(username);
-		  adminRepo.delete(admin);
+		if (admin==null) {
+			throw new InvalidRequestException("Admin doesnt exist by that username");
+		}
+		  adminRepo.deleteAdmin(admin.getAdminId(),0);
 	}
 	
 }

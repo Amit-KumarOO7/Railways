@@ -3,7 +3,7 @@ package com.example.railways.admin.controller;
 import com.example.railways.admin.model.AdminDetails;
 import com.example.railways.admin.response.AdminDetailsResponse;
 import com.example.railways.admin.service.AdminService;
-
+import com.example.railways.utils.Validations;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,9 +22,14 @@ public class AuthAdmin {
 
     @Autowired
     AdminService adminService;
+    
+    @Autowired
+    Validations validation;
+    
     @PostMapping("createAdmin")
     public ResponseEntity<Object> createAdmin(@RequestBody AdminDetails admin){
-
+    	
+    validation.adminValidation(admin);	
    return new ResponseEntity<Object>( new AdminDetailsResponse(new Date(),"Admin added Successfully",adminService.createAdmin(admin)),HttpStatus.OK);
    
     
@@ -36,8 +41,8 @@ public class AuthAdmin {
     	
     }
 
-    @DeleteMapping("deleteAdmin")
-    public void deleteAdmin(String username){
+    @PostMapping("deleteAdmin")
+    public void deleteAdmin(@RequestBody String username){
     	 adminService.deleteAdmin(username);
     	 	
     }

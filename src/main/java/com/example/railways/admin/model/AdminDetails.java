@@ -12,20 +12,68 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Entity
 public class AdminDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private @Getter @Setter long adminId;
+    private  long adminId;
     
     @Column(unique = true)
-    private @Getter @Setter String adminUsername;
+    private String adminUsername;
     
     @Column
-    private @Getter @Setter String adminPassword;
+    private  String adminPassword;
+    
+    private int status=1;
+
+	public long getAdminId() {
+		return adminId;
+	}
+
+	public void setAdminId(long adminId) {
+		this.adminId = adminId;
+	}
+
+	public String getAdminUsername() {
+		return adminUsername;
+	}
+
+	public void setAdminUsername(String adminUsername) {
+		this.adminUsername = adminUsername;
+	}
+
+	public String getAdminPassword() {
+		return adminPassword;
+	}
+
+	public void setAdminPassword(String adminPassword) {
+		this.adminPassword = adminPassword;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public AdminDetails(long adminId, String adminUsername, String adminPassword, int status) {
+		super();
+		this.adminId = adminId;
+		this.adminUsername = adminUsername;
+		this.adminPassword = adminPassword;
+		this.status = status;
+	}
+
+	public AdminDetails() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+    
 
     
 }
