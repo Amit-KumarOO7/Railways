@@ -22,7 +22,7 @@ public class DeleteTicketController {
 
     @DeleteMapping("/deleteTicket")
     public ResponseEntity<Object> deleteTicket(@RequestBody TicketDetails ticketDetails) {
-        ArrayList<TicketDetails> ticketExists = ticketService.fetchTicket(ticketDetails.getUId());
+        ArrayList<TicketDetails> ticketExists = ticketService.fetchTicket(ticketDetails.getuId());
         boolean ticketE = false;
         for (TicketDetails t : ticketExists) {
             if (t.getTbId() == ticketDetails.getTbId()) {
@@ -33,7 +33,7 @@ public class DeleteTicketController {
             ErrorResponse response = new ErrorResponse(new Date(), "Ticket does not exist", "400");
             return new ResponseEntity<Object>(response, HttpStatus.OK);
         }
-        ticketService.deleteTicket(ticketDetails.getUId(), ticketDetails.getTbId());
+        ticketService.deleteTicket(ticketDetails.getuId(), ticketDetails.getTbId());
         TicketDeleteResponse response = new TicketDeleteResponse(new Date(), "Ticket deleted Successfully", "200");
         return new ResponseEntity<Object>(response, HttpStatus.OK);
     }
