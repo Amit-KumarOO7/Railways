@@ -3,14 +3,15 @@ package com.example.railways.response;
 
 import java.util.Date;
 
-
-import lombok.*;
-
-@NoArgsConstructor
-// @AllArgsConstructor
 public class TicketDeleteResponse {
-	
-	public TicketDeleteResponse(Date date2, String message, String status) {
+
+    public TicketDeleteResponse() {
+    }
+
+    public TicketDeleteResponse(Date date, String message, String status) {
+        this.date = date;
+        this.message = message;
+        this.status = status;
     }
 
     public String getStatus() {

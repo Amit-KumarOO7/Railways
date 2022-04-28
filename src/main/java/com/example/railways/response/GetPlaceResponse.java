@@ -1,31 +1,63 @@
 package com.example.railways.response;
 
 import com.example.railways.models.PlaceDetails;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.Date;
 import java.util.List;
 
-@NoArgsConstructor
-@AllArgsConstructor
 public class GetPlaceResponse {
-    private @Getter
-    @Setter
+    private
     Date timestamp;
 
-    private @Getter
-    @Setter
+    private
     String message;
 
-    private @Getter
-    @Setter
+    private
     String status;
 
-    private @Getter
-    @Setter
+    private
     List<PlaceDetails> place;
+
+    public GetPlaceResponse(Date timestamp, String message, String status, List<PlaceDetails> place) {
+        this.timestamp = timestamp;
+        this.message = message;
+        this.status = status;
+        this.place = place;
+    }
+
+    public GetPlaceResponse() {
+    }
+
+    public Date getTimestamp() {
+        return this.timestamp;
+    }
+
+    public String getMessage() {
+        return this.message;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public List<PlaceDetails> getPlace() {
+        return this.place;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setPlace(List<PlaceDetails> place) {
+        this.place = place;
+    }
 }
 

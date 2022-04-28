@@ -1,30 +1,62 @@
 package com.example.railways.response;
 
 import com.example.railways.models.UserDetails;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.Date;
 
-@NoArgsConstructor
-@AllArgsConstructor
 public class NewUserResponse {
 
-    private @Getter
-    @Setter
+    private
     Date date;
 
-    private @Getter
-    @Setter
+    private
     String message;
 
-    private @Getter
-    @Setter
+    private
     String status;
 
-    private @Getter
-    @Setter
+    private
     UserDetails user;
+
+    public NewUserResponse(Date date, String message, String status, UserDetails user) {
+        this.date = date;
+        this.message = message;
+        this.status = status;
+        this.user = user;
+    }
+
+    public NewUserResponse() {
+    }
+
+    public Date getDate() {
+        return this.date;
+    }
+
+    public String getMessage() {
+        return this.message;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public UserDetails getUser() {
+        return this.user;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setUser(UserDetails user) {
+        this.user = user;
+    }
 }

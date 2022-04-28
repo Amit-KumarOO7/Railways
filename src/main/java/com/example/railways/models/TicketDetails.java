@@ -1,19 +1,24 @@
 package com.example.railways.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-import javax.persistence.*;
-
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "tickets")
 public class TicketDetails {
 
-     
+    public TicketDetails(int tbId, int uId, int trainNumber, String tbSource, String tbDestination, String tbStatus) {
+        this.tbId = tbId;
+        this.uId = uId;
+        this.trainNumber = trainNumber;
+        this.tbSource = tbSource;
+        this.tbDestination = tbDestination;
+        this.tbStatus = tbStatus;
+    }
+
+    public TicketDetails() {
+    }
+
     private int tbId;
 
     private int uId;
