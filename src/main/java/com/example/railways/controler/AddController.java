@@ -3,6 +3,8 @@ package com.example.railways.controler;
 import com.example.railways.models.Train;
 import com.example.railways.response.TrainResponse;
 import com.example.railways.service.TrainService;
+import com.example.railways.utils.TrainValidations;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +20,14 @@ public class AddController {
 
     @Autowired
     TrainService trainService;
+    
+    @Autowired
+    TrainValidations trainValidations;
 
     @PostMapping("/addTrains")
     public ResponseEntity<Object> createAdmin(@RequestBody Train trainDetails) {
+    	
+    	trainValidations.Validate(trainDetails);
 
         Train train = trainService.fetchTrainsByTrainNumber(trainDetails.getTrainNumber());
 
@@ -38,10 +45,15 @@ public class AddController {
         List<Train> trains = trainService.fetchTrains();
         return trains;
     }
+
   @GetMapping("/trainSchedule")
   public Train fetchTrainSchedule(@RequestBody Train trainDetails) {
+	  
+	  trainValidations.ScheduleValidation(trainDetails);
+	  
 	  Train train = trainService.fetchTrainsByTrainNumber(trainDetails.getTrainNumber());
 	  return train;
   }
+
 
 }

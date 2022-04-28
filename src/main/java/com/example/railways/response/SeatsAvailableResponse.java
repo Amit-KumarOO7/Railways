@@ -1,30 +1,19 @@
 package com.example.railways.response;
 
-import com.example.railways.models.RouteDetails;
-
 import java.util.Date;
 
+public class SeatsAvailableResponse {
+    Date timestamp;
+    String message;
+    String status;
 
-public class RouteCreatedResponse {
-    private Date timestamp;
+    int noOfAvailableSeats;
 
-    private String message;
-
-    private String status;
-
-    private RouteDetails route;
-
-    public RouteCreatedResponse() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-    public RouteCreatedResponse(Date timestamp, String message, String status, RouteDetails route) {
-        super();
+    public SeatsAvailableResponse(Date timestamp, String message, String status, int noOfAvailableSeats) {
         this.timestamp = timestamp;
         this.message = message;
         this.status = status;
-        this.route = route;
+        this.noOfAvailableSeats = noOfAvailableSeats;
     }
 
     public Date getTimestamp() {
@@ -51,13 +40,15 @@ public class RouteCreatedResponse {
         this.status = status;
     }
 
-    public RouteDetails getRoute() {
-        return route;
+    public int getAvailable() {
+        return noOfAvailableSeats;
     }
 
-    public void setRoute(RouteDetails route) {
-        this.route = route;
+    public void setAvailable(int available) {
+        this.noOfAvailableSeats = noOfAvailableSeats;
     }
+
+
 
 
 }

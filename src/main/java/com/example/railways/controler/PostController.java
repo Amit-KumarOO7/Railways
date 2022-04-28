@@ -11,9 +11,7 @@ import com.example.railways.response.UserCreatedResponse;
 import com.example.railways.service.PlaceService;
 import com.example.railways.service.RouteService;
 import com.example.railways.service.UserService;
-import com.example.railways.utils.UserCreateUtils;
 import com.example.railways.utils.Validations;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,17 +33,17 @@ public class PostController {
 
     @Autowired
     RouteService routeService;
-    
+
     @Autowired
     Validations validations;
 
     @PostMapping("/createUser")
     public ResponseEntity<Object> createUser(@RequestBody UserDetails userDetails) {
-    	
-    	System.out.println(userDetails.getuEmailId());
-    	
-    	validations.createUserValidation(userDetails);
-       
+
+        System.out.println(userDetails.getuEmailId());
+
+        validations.createUserValidation(userDetails);
+
 
         UserDetails fetchAdmin = userService.fetchByEmail(userDetails.getuEmailId());
         if (fetchAdmin == null) {
@@ -74,11 +72,10 @@ public class PostController {
         return new ResponseEntity<Object>(response, HttpStatus.OK);
     }
 
-
     @PostMapping("/addRoute")
     public ResponseEntity<Object> addRoute(@RequestBody RouteDetails routeDetails) {
-        
-    	validations.addRouteValidations(routeDetails);
+
+        validations.addRouteValidations(routeDetails);
 
         PlaceDetails placeFrom = placeService.fetchByPlaceId(routeDetails.getFromId().getpId());
         PlaceDetails placeTo = placeService.fetchByPlaceId(routeDetails.getToId().getpId());

@@ -1,76 +1,62 @@
 package com.example.railways.response;
 
 import com.example.railways.models.UserDetails;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.Date;
 
 
 public class UserCreatedResponse {
-    private 
-    
-    Date timestamp;
+    private Date timestamp;
 
-    private 
-    
-    String message;
+    private String message;
 
-    private 
-    
-    String status;
+    private String status;
 
-    private 
-    
-    UserDetails result;
+    private UserDetails result;
 
-	public UserCreatedResponse() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    public UserCreatedResponse() {
+        super();
+    }
 
-	public UserCreatedResponse(Date timestamp, String message, String status, UserDetails result) {
-		super();
-		this.timestamp = timestamp;
-		this.message = message;
-		this.status = status;
-		this.result = result;
-	}
+    public UserCreatedResponse(Date timestamp, String message, String status, UserDetails result) {
+        super();
+        this.timestamp = timestamp;
+        this.message = message;
+        this.status = status;
+        this.result = result;
+    }
 
-	public Date getTimestamp() {
-		return timestamp;
-	}
+    public Date getTimestamp() {
+        return timestamp;
+    }
 
-	public void setTimestamp(Date timestamp) {
-		this.timestamp = timestamp;
-	}
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
 
-	public String getMessage() {
-		return message;
-	}
+    public String getMessage() {
+        return message;
+    }
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public String getStatus() {
+        return status;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-	public UserDetails getResult() {
-		return result;
-	}
+    public UserDetails getResult() {
+        return result;
+    }
 
-	public void setResult(UserDetails result) {
-		this.result = result;
-	}
-    
-    
-    
+    public void setResult(UserDetails result) {
+        this.result = result;
+    }
+
+
 }

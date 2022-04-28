@@ -1,15 +1,6 @@
 package com.example.railways.admin.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import javax.persistence.*;
 
 
 
@@ -18,6 +9,7 @@ public class AdminDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
     private  long adminId;
     
     @Column(unique = true)
@@ -75,5 +67,8 @@ public class AdminDetails {
 	
     
 
-    
+
+    public void setAdminPassword(String adminPassword) {
+        this.adminPassword = adminPassword;
+    }
 }

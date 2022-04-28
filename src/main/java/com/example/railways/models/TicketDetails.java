@@ -1,19 +1,21 @@
 package com.example.railways.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Entity
 @Table(name = "tickets")
 public class TicketDetails {
+<<<<<<< Updated upstream
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    
+=======
 
-     
+    @Id
+>>>>>>> Stashed changes
     private int tbId;
 
     private int uId;
@@ -25,6 +27,19 @@ public class TicketDetails {
     private String tbDestination;
 
     private String tbStatus;
+    
+    public TicketDetails(int tbId, int uId, int trainNumber, String tbSource, String tbDestination, String tbStatus) {
+        this.tbId = tbId;
+        this.uId = uId;
+        this.trainNumber = trainNumber;
+        this.tbSource = tbSource;
+        this.tbDestination = tbDestination;
+        this.tbStatus = tbStatus;
+    }
+
+    public TicketDetails() {
+    }
+    
 
     public int getuId() {
         return uId;
