@@ -1,5 +1,10 @@
 package com.example.railways.utils;
 
+
+import org.springframework.stereotype.Service;
+
+import com.example.railways.admin.model.AdminDetails;
+
 import com.example.railways.exceptions.InvalidRequestException;
 import com.example.railways.models.RouteDetails;
 import com.example.railways.models.UserDetails;
@@ -73,5 +78,13 @@ public class Validations {
             throw new InvalidRequestException("Invalid aadhaar");
         }
     }
+
+	public void adminValidation(AdminDetails admin) {
+		if(admin.getAdminUsername().isBlank()||admin.getAdminUsername().isEmpty())
+			throw new InvalidRequestException("Invalid Username");
+		if(admin.getAdminPassword().length()<8)
+			throw new InvalidRequestException("Password must be 8 or more characters");
+			
+	}
 
 }
