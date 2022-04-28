@@ -7,10 +7,15 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tickets")
 public class TicketDetails {
+<<<<<<< Updated upstream
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     
+=======
+
+    @Id
+>>>>>>> Stashed changes
     private int tbId;
 
     private int uId;
