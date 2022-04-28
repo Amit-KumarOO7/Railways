@@ -25,7 +25,9 @@ public class TicketDetails {
     int uId;
 
     @Column
-    private @Getter @Setter int trainNumber;
+    private @Getter
+    @Setter 
+    int trainNumber;
 
     @Column
     private @Getter
