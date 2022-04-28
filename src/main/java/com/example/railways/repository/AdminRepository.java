@@ -17,4 +17,7 @@ public interface AdminRepository extends JpaRepository<Train, Long> {
     @Query("Select t FROM Train t")
     List<Train> getTrains();
 
+    @Query("SELECT a.availableSeats FROM Train a where a.trainNumber=?1")
+    int getSeatsAvailable(int trainNumber);
+
 }

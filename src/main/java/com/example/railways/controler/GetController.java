@@ -6,10 +6,10 @@ import com.example.railways.models.Train;
 import com.example.railways.response.ErrorResponse;
 import com.example.railways.response.GetPlaceResponse;
 import com.example.railways.response.GetRouteResponse;
-import com.example.railways.response.TicketsAvailableResponse;
+import com.example.railways.response.SeatsAvailableResponse;
 import com.example.railways.service.PlaceService;
 import com.example.railways.service.RouteService;
-import com.example.railways.service.TicketService;
+import com.example.railways.service.TrainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +29,7 @@ public class GetController {
     RouteService routeService;
 
     @Autowired
-    TicketService ticketService;
+    TrainService trainService;
 
     @GetMapping("/getPlaces")
     public ResponseEntity<Object> getPlaces() {
@@ -56,11 +56,16 @@ public class GetController {
         GetRouteResponse response = new GetRouteResponse(new Date(), "Get Routes successfully", "200", fetchRoutes);
         return new ResponseEntity<Object>(response, HttpStatus.OK);
     }
-    @GetMapping("/getTicketsAvailable")
-    public ResponseEntity<Object> getTicketsAvailable(@RequestBody Train train) {
-        int trainNumber = train.getTrainNumber();
-        int available = ticketService.getTicketsAvailable(trainNumber);
-        TicketsAvailableResponse response = new TicketsAvailableResponse(new Date(),"Get Tickets Available Successful","200",available);
+    @GetMapping("/getSeatsAvailable")
+    public ResponseEntity<Object> getSeatsAvailable(@RequestBody Train trainDetails) {
+        int trainNumber = trainDetails.getTrainNumber();
+        Train train = trainService.fetchTrainsByTrainNumber(trainNumber);
+        if(train == null){
+            ErrorResponse response = new ErrorResponse(new Date(), "Train doesn't exist", "409");
+            return new ResponseEntity<Object>(response, HttpStatus.OK);
+        }
+        int available = trainService.getAvailableSeats(trainNumber);
+        SeatsAvailableResponse response = new SeatsAvailableResponse(new Date(),"Get Seats Available Successful","200",available);
         return new ResponseEntity<Object>(response,HttpStatus.OK);
     }
 }

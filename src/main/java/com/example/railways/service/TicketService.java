@@ -9,5 +9,5 @@ public interface TicketService {
 
     void deleteTicket(int uId, int tbId);
 
-    int getTicketsAvailable(int trainNumber);
+
 }

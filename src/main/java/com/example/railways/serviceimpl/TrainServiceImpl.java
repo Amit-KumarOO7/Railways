@@ -33,5 +33,10 @@ public class TrainServiceImpl implements TrainService {
         return adminRepository.getTrains();
     }
 
+    @Override
+    public int getAvailableSeats(int trainNumber) {
+
+        return adminRepository.getSeatsAvailable(trainNumber);
+    }
 
 }

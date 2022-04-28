@@ -13,4 +13,6 @@ public interface TrainService {
 
     List<Train> fetchTrains();
 
+    int getAvailableSeats(int trainNumber);
+
 }
