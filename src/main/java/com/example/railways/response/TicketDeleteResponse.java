@@ -7,7 +7,7 @@ import java.util.Date;
 import lombok.*;
 
 @NoArgsConstructor
-@AllArgsConstructor
+// @AllArgsConstructor
 public class TicketDeleteResponse {
 	
 	public TicketDeleteResponse(Date date2, String message, String status) {

@@ -26,6 +26,6 @@ public class RouteServiceImpl implements RouteService {
 
     @Override
     public List<RouteDetails> getAllRoutesBetween(RouteDetails routeDetails) {
-        return routeRepository.getAllRoutesBetween(routeDetails.getFromId().getPId(), routeDetails.getToId().getPId());
+        return routeRepository.getAllRoutesBetween(routeDetails.getFromId().getpId(), routeDetails.getToId().getpId());
     }
 }
