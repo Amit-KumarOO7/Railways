@@ -1,6 +1,5 @@
 package com.example.railways.response;
 
-import lombok.Getter;
 
 import java.util.Date;
 
@@ -11,10 +10,37 @@ import lombok.*;
 @AllArgsConstructor
 public class TicketDeleteResponse {
 	
-	private @Getter @Setter Date date;
+	public TicketDeleteResponse(Date date2, String string, String string2) {
+    }
 
-    private @Getter @Setter String message;
+    public String getStatus() {
+        return status;
+    }
 
-    private @Getter @Setter String status;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    private Date date;
+
+    private String message;
+
+    private String status;
 
 }

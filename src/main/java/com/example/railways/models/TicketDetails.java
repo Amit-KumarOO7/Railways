@@ -13,34 +13,64 @@ import javax.persistence.*;
 @Table(name = "tickets")
 public class TicketDetails {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private @Getter
-    @Setter
-    int tbId;
+     
+    private int tbId;
 
-    @Column
-    private @Getter
-    @Setter
-    int uId;
+    private int uId;
 
-    @Column
-    private @Getter
-    @Setter 
-    int trainNumber;
+    private int trainNumber;
 
-    @Column
-    private @Getter
-    @Setter
-    String tbSource;
+    private String tbSource;
 
-    @Column
-    private @Getter
-    @Setter
-    String tbDestination;
+    private String tbDestination;
 
-    @Column
-    private @Getter
-    @Setter
-    int tbStatus;
+    private int tbStatus;
+
+    public int getuId() {
+        return uId;
+    }
+
+    public int getTbId() {
+        return tbId;
+    }
+
+    public void setTbId(int tbId) {
+        this.tbId = tbId;
+    }
+
+    public int getTbStatus() {
+        return tbStatus;
+    }
+
+    public void setTbStatus(int tbStatus) {
+        this.tbStatus = tbStatus;
+    }
+
+    public String getTbDestination() {
+        return tbDestination;
+    }
+
+    public void setTbDestination(String tbDestination) {
+        this.tbDestination = tbDestination;
+    }
+
+    public String getTbSource() {
+        return tbSource;
+    }
+
+    public void setTbSource(String tbSource) {
+        this.tbSource = tbSource;
+    }
+
+    public int getTrainNumber() {
+        return trainNumber;
+    }
+
+    public void setTrainNumber(int trainNumber) {
+        this.trainNumber = trainNumber;
+    }
+
+    public void setuId(int uId) {
+        this.uId = uId;
+    }
 }
