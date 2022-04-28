@@ -10,7 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 public class TicketDeleteResponse {
 	
-	public TicketDeleteResponse(Date date2, String string, String string2) {
+	public TicketDeleteResponse(Date date2, String message, String status) {
     }
 
     public String getStatus() {
