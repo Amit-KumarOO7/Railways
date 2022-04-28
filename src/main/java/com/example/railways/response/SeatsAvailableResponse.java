@@ -7,13 +7,13 @@ public class SeatsAvailableResponse {
     String message;
     String status;
 
-    int available;
+    int noOfAvailableSeats;
 
-    public SeatsAvailableResponse(Date timestamp, String message, String status, int available) {
+    public SeatsAvailableResponse(Date timestamp, String message, String status, int noOfAvailableSeats) {
         this.timestamp = timestamp;
         this.message = message;
         this.status = status;
-        this.available = available;
+        this.noOfAvailableSeats = noOfAvailableSeats;
     }
 
     public Date getTimestamp() {
@@ -41,11 +41,11 @@ public class SeatsAvailableResponse {
     }
 
     public int getAvailable() {
-        return available;
+        return noOfAvailableSeats;
     }
 
     public void setAvailable(int available) {
-        this.available = available;
+        this.noOfAvailableSeats = noOfAvailableSeats;
     }
 
 
