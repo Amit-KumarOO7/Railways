@@ -7,7 +7,6 @@ import com.example.railways.admin.service.AdminService;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,7 +22,6 @@ public class AdminServiceImpl implements AdminService {
     }
 	@Override
 	public ArrayList<AdminDetails> getAdmins() {
-		// TODO Auto-generated method stub
 		return  (ArrayList<AdminDetails>) adminRepo.findAll();
 	}
 	
