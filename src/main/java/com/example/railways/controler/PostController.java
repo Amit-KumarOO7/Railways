@@ -12,6 +12,8 @@ import com.example.railways.service.PlaceService;
 import com.example.railways.service.RouteService;
 import com.example.railways.service.UserService;
 import com.example.railways.utils.UserCreateUtils;
+import com.example.railways.utils.Validations;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,21 +35,17 @@ public class PostController {
 
     @Autowired
     RouteService routeService;
+    
+    @Autowired
+    Validations validations;
 
     @PostMapping("/createUser")
     public ResponseEntity<Object> createUser(@RequestBody UserDetails userDetails) {
-        if (userDetails.getuName() == null ||
-                userDetails.getuAddress() == null ||
-                userDetails.getuDob() == null ||
-                userDetails.getuAge() <= 0 ||
-                userDetails.getuEmailId() == null ||
-                userDetails.getuPassword() == null ||
-                !UserCreateUtils.isEmailAddressValid(userDetails.getuEmailId()) ||
-                !UserCreateUtils.isPasswordValid(userDetails.getuPassword())
-        ) {
-            ErrorResponse response = new ErrorResponse(new Date(), "Fill all the details", "409");
-            return new ResponseEntity<Object>(response, HttpStatus.OK);
-        }
+    	
+    	System.out.println(userDetails.getuEmailId());
+    	
+    	validations.createUserValidation(userDetails);
+       
 
         UserDetails fetchAdmin = userService.fetchByEmail(userDetails.getuEmailId());
         if (fetchAdmin == null) {
@@ -79,15 +77,8 @@ public class PostController {
 
     @PostMapping("/addRoute")
     public ResponseEntity<Object> addRoute(@RequestBody RouteDetails routeDetails) {
-        System.out.println(routeDetails);
-        if (routeDetails.getFromId() == null ||
-                routeDetails.getToId() == null ||
-                routeDetails.getTime() == null ||
-                routeDetails.getTrainName() == null
-        ) {
-            ErrorResponse response = new ErrorResponse(new Date(), "Fill all the details", "409");
-            return new ResponseEntity<Object>(response, HttpStatus.OK);
-        }
+        
+    	validations.addRouteValidations(routeDetails);
 
         PlaceDetails placeFrom = placeService.fetchByPlaceId(routeDetails.getFromId().getpId());
         PlaceDetails placeTo = placeService.fetchByPlaceId(routeDetails.getToId().getpId());

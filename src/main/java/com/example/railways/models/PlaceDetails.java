@@ -25,6 +25,15 @@ public class PlaceDetails {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+
+	public PlaceDetails(int pId) {
+		super();
+		this.pId = pId;
+	}
+
+
 
 	public PlaceDetails(int pId, String pName) {
 		super();

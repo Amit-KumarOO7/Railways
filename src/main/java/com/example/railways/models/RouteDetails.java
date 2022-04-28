@@ -18,9 +18,7 @@ public class RouteDetails {
 
     @ManyToOne
     @JoinColumn(name = "from_id")
-    private 
-    
-    PlaceDetails fromId;
+    private PlaceDetails fromId;
     @ManyToOne
     @JoinColumn(name = "to_id")
     private 

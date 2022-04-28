@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDetails createUser(UserDetails userDetails) {
-        userDetails.setUPassword(encoder.encode(userDetails.getUPassword()));
+        userDetails.setuPassword(encoder.encode(userDetails.getuPassword()));
         return authRepository.save(userDetails);
     }
 
