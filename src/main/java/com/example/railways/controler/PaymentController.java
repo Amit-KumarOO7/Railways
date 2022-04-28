@@ -10,7 +10,6 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Random;
@@ -37,7 +36,6 @@ public class PaymentController {
         } else {
             paymentModel.success = 0;
         }
-
         paymentRepository.save(paymentModel);
 
         JSONObject jsonObject = new JSONObject();

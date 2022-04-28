@@ -5,18 +5,13 @@ import com.example.railways.models.UserDetails;
 import java.util.Date;
 
 public class NewUserResponse {
+    private Date date;
 
-    private
-    Date date;
+    private String message;
 
-    private
-    String message;
+    private String status;
 
-    private
-    String status;
-
-    private
-    UserDetails user;
+    private UserDetails user;
 
     public NewUserResponse(Date date, String message, String status, UserDetails user) {
         this.date = date;

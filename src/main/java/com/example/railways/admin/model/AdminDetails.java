@@ -1,31 +1,54 @@
 package com.example.railways.admin.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import javax.persistence.*;
 
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class AdminDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private @Getter @Setter long adminId;
-    
+    private
+    long adminId;
     @Column(unique = true)
-    private @Getter @Setter String adminUsername;
-    
-    @Column
-    private @Getter @Setter String adminPassword;
+    private
+    String adminUsername;
 
-    
+    @Column
+    private
+    String adminPassword;
+
+
+    public AdminDetails(long adminId, String adminUsername, String adminPassword) {
+        this.adminId = adminId;
+        this.adminUsername = adminUsername;
+        this.adminPassword = adminPassword;
+    }
+
+    public AdminDetails() {
+    }
+
+    public long getAdminId() {
+        return this.adminId;
+    }
+
+    public String getAdminUsername() {
+        return this.adminUsername;
+    }
+
+    public String getAdminPassword() {
+        return this.adminPassword;
+    }
+
+    public void setAdminId(long adminId) {
+        this.adminId = adminId;
+    }
+
+    public void setAdminUsername(String adminUsername) {
+        this.adminUsername = adminUsername;
+    }
+
+    public void setAdminPassword(String adminPassword) {
+        this.adminPassword = adminPassword;
+    }
 }

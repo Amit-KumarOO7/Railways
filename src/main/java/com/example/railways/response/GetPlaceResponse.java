@@ -6,17 +6,13 @@ import java.util.Date;
 import java.util.List;
 
 public class GetPlaceResponse {
-    private
-    Date timestamp;
+    private Date timestamp;
 
-    private
-    String message;
+    private String message;
 
-    private
-    String status;
+    private String status;
 
-    private
-    List<PlaceDetails> place;
+    private List<PlaceDetails> place;
 
     public GetPlaceResponse(Date timestamp, String message, String status, List<PlaceDetails> place) {
         this.timestamp = timestamp;

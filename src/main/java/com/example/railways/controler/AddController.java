@@ -38,10 +38,11 @@ public class AddController {
         List<Train> trains = trainService.fetchTrains();
         return trains;
     }
-  @GetMapping("/trainSchedule")
-  public Train fetchTrainSchedule(@RequestBody Train trainDetails) {
-	  Train train = trainService.fetchTrainsByTrainNumber(trainDetails.getTrainNumber());
-	  return train;
-  }
+
+    @GetMapping("/trainSchedule")
+    public Train fetchTrainSchedule(@RequestBody Train trainDetails) {
+        Train train = trainService.fetchTrainsByTrainNumber(trainDetails.getTrainNumber());
+        return train;
+    }
 
 }

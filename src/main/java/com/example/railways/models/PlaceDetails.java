@@ -1,10 +1,5 @@
 package com.example.railways.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 
 
@@ -13,49 +8,47 @@ import javax.persistence.*;
 public class PlaceDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private 
-    
+    private
+
     int pId;
 
-    private 
-    
+    private
+
     String pName;
 
-	public PlaceDetails() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	
-
-	public PlaceDetails(int pId) {
-		super();
-		this.pId = pId;
-	}
+    public PlaceDetails() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 
+    public PlaceDetails(int pId) {
+        super();
+        this.pId = pId;
+    }
 
-	public PlaceDetails(int pId, String pName) {
-		super();
-		this.pId = pId;
-		this.pName = pName;
-	}
 
-	public int getpId() {
-		return pId;
-	}
+    public PlaceDetails(int pId, String pName) {
+        super();
+        this.pId = pId;
+        this.pName = pName;
+    }
 
-	public void setpId(int pId) {
-		this.pId = pId;
-	}
+    public int getpId() {
+        return pId;
+    }
 
-	public String getpName() {
-		return pName;
-	}
+    public void setpId(int pId) {
+        this.pId = pId;
+    }
 
-	public void setpName(String pName) {
-		this.pName = pName;
-	}
-    
-    
+    public String getpName() {
+        return pName;
+    }
+
+    public void setpName(String pName) {
+        this.pName = pName;
+    }
+
+
 }

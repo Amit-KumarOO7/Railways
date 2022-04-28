@@ -6,17 +6,13 @@ import java.util.Date;
 import java.util.List;
 
 public class GetRouteResponse {
-    private
-    Date timestamp;
+    private Date timestamp;
 
-    private
-    String message;
+    private String message;
 
-    private
-    String status;
+    private String status;
 
-    private
-    List<RouteDetails> route;
+    private List<RouteDetails> route;
 
     public GetRouteResponse(Date timestamp, String message, String status, List<RouteDetails> route) {
         this.timestamp = timestamp;
