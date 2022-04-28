@@ -25,6 +25,9 @@ public class TicketDetails {
     int uId;
 
     @Column
+    private @Getter @Setter int trainNumber;
+
+    @Column
     private @Getter
     @Setter
     String tbSource;
