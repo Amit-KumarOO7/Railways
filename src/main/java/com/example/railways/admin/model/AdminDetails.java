@@ -68,7 +68,5 @@ public class AdminDetails {
     
 
 
-    public void setAdminPassword(String adminPassword) {
-        this.adminPassword = adminPassword;
-    }
+   
 }
