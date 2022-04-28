@@ -4,12 +4,10 @@ import com.example.railways.admin.model.AdminDetails;
 import com.example.railways.admin.response.AdminDetailsResponse;
 import com.example.railways.admin.service.AdminService;
 
-import antlr.collections.List;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-import org.aspectj.weaver.NewConstructorTypeMunger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

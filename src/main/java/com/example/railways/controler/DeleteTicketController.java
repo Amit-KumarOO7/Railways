@@ -17,15 +17,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class DeleteTicketController {
+    
     @Autowired
     TicketService ticketService;
 
 	@DeleteMapping("/deleteTicket") 
 	public ResponseEntity<Object> deleteTicket(@RequestBody TicketDetails ticketDetails){
-        ArrayList<TicketDetails> ticketExists = ticketService.fetchTicket(ticketDetails.getuId());
+        ArrayList<TicketDetails> ticketExists = ticketService.fetchTicket(ticketDetails.getUId());
         boolean ticketE=false;
         for(TicketDetails t : ticketExists){
-            if(t.gettbId()==ticketDetails.gettbId()){
+            if(t.getTbId()==ticketDetails.getTbId()){
                 ticketE=true;
             }
         }
@@ -33,7 +34,7 @@ public class DeleteTicketController {
             ErrorResponse response = new ErrorResponse(new Date(), "Ticket does not exist", "400");
             return new ResponseEntity<Object>(response, HttpStatus.OK);
         }
-        ticketService.deleteTicket(ticketDetails.getuId(),ticketDetails.gettbId());
+        ticketService.deleteTicket(ticketDetails.getUId(),ticketDetails.getTbId());
         TicketDeleteResponse response = new TicketDeleteResponse(new Date(), "Ticket deleted Successfully", "200");
             return new ResponseEntity<Object>(response, HttpStatus.OK);
 	}

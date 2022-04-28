@@ -4,26 +4,17 @@ import lombok.Getter;
 
 import java.util.Date;
 
-import com.example.railways.model.TicketDetails;
 
 import lombok.*;
 
+@NoArgsConstructor
+@AllArgsConstructor
 public class TicketDeleteResponse {
 	
-	
+	private @Getter @Setter Date date;
 
-    public TicketDeleteResponse(Date date2, String string, String string2) {
-	}
-	private @Getter
-    @Setter
-    Date date;
+    private @Getter @Setter String message;
 
-    private @Getter
-    @Setter
-    String message;
-
-    private @Getter
-    @Setter
-    String status;
+    private @Getter @Setter String status;
 
 }
