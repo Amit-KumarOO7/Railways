@@ -1,11 +1,11 @@
 package com.example.railways.repository;
 
-import java.util.ArrayList;
-
-import com.example.railways.model.TicketDetails;
+import com.example.railways.models.TicketDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
 
 @Repository
 public interface TicketRepository extends JpaRepository<TicketDetails, Long> {

@@ -23,7 +23,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDetails fetchByEmail(String emailId) {
-        UserDetails user = authRepository.fetchByEmail(emailId);
-        return user;
+        return authRepository.fetchByEmail(emailId);
     }
 }
