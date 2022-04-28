@@ -17,11 +17,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 
 @RestController
+@RequestMapping("/user")
 public class PostController {
     @Autowired
     UserService userService;
@@ -34,20 +36,20 @@ public class PostController {
 
     @PostMapping("/createUser")
     public ResponseEntity<Object> createUser(@RequestBody UserDetails userDetails) {
-        if (userDetails.getUName() == null ||
-                userDetails.getUAddress() == null ||
-                userDetails.getUDob() == null ||
-                userDetails.getUAge() <= 0 ||
-                userDetails.getUEmailId() == null ||
-                userDetails.getUPassword() == null ||
-                !UserCreateUtils.isEmailAddressValid(userDetails.getUEmailId()) ||
-                !UserCreateUtils.isPasswordValid(userDetails.getUPassword())
+        if (userDetails.getuName() == null ||
+                userDetails.getuAddress() == null ||
+                userDetails.getuDob() == null ||
+                userDetails.getuAge() <= 0 ||
+                userDetails.getuEmailId() == null ||
+                userDetails.getuPassword() == null ||
+                !UserCreateUtils.isEmailAddressValid(userDetails.getuEmailId()) ||
+                !UserCreateUtils.isPasswordValid(userDetails.getuPassword())
         ) {
             ErrorResponse response = new ErrorResponse(new Date(), "Fill all the details", "409");
             return new ResponseEntity<Object>(response, HttpStatus.OK);
         }
 
-        UserDetails fetchAdmin = userService.fetchByEmail(userDetails.getUEmailId());
+        UserDetails fetchAdmin = userService.fetchByEmail(userDetails.getuEmailId());
         if (fetchAdmin == null) {
             UserDetails user = userService.createUser(userDetails);
             UserCreatedResponse response = new UserCreatedResponse(new Date(), "User Created Successfully", "200", user);
@@ -59,12 +61,12 @@ public class PostController {
 
     @PostMapping("/addPlace")
     public ResponseEntity<Object> addPlace(@RequestBody PlaceDetails placeDetails) {
-        if (placeDetails.getPName() == null) {
+        if (placeDetails.getpName() == null) {
             ErrorResponse response = new ErrorResponse(new Date(), "Fill all the details", "409");
             return new ResponseEntity<Object>(response, HttpStatus.OK);
         }
 
-        PlaceDetails fetchPlace = placeService.fetchByPlaceName(placeDetails.getPName());
+        PlaceDetails fetchPlace = placeService.fetchByPlaceName(placeDetails.getpName());
         if (fetchPlace == null) {
             PlaceDetails place = placeService.createPlace(placeDetails);
             PlaceCreatedResponse response = new PlaceCreatedResponse(new Date(), "Place Created Successfully", "200", place);
@@ -87,8 +89,8 @@ public class PostController {
             return new ResponseEntity<Object>(response, HttpStatus.OK);
         }
 
-        PlaceDetails placeFrom = placeService.fetchByPlaceId(routeDetails.getFromId().getPId());
-        PlaceDetails placeTo = placeService.fetchByPlaceId(routeDetails.getToId().getPId());
+        PlaceDetails placeFrom = placeService.fetchByPlaceId(routeDetails.getFromId().getpId());
+        PlaceDetails placeTo = placeService.fetchByPlaceId(routeDetails.getToId().getpId());
 
         if (placeFrom == null || placeTo == null) {
             ErrorResponse response = new ErrorResponse(new Date(), "Add Place first", "409");
@@ -96,8 +98,8 @@ public class PostController {
         }
 
         RouteDetails route = routeService.createRoute(routeDetails);
-        route.getFromId().setPName(placeFrom.getPName());
-        route.getToId().setPName(placeTo.getPName());
+        route.getFromId().setpName(placeFrom.getpName());
+        route.getToId().setpName(placeTo.getpName());
         RouteCreatedResponse response = new RouteCreatedResponse(new Date(), "Route Created Successfully", "200", route);
         return new ResponseEntity<Object>(response, HttpStatus.OK);
     }

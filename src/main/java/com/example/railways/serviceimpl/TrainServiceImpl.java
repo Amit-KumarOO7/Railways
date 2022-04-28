@@ -12,25 +12,25 @@ import java.util.List;
 public class TrainServiceImpl implements TrainService {
 
     @Autowired
-    AdminRepository AdminRepository;
+    AdminRepository adminRepository;
 
     @Override
     public Train fetchTrainsByTrainNumber(int trainNumber) {
         // TODO Auto-generated method stub
 
-        return AdminRepository.fetchTrainByTrainNumber(trainNumber);
+        return adminRepository.fetchTrainByTrainNumber(trainNumber);
     }
 
     @Override
     public Train createAdmin(Train trainDetails) {
         // TODO Auto-generated method stub
-        return AdminRepository.save(trainDetails);
+        return adminRepository.save(trainDetails);
     }
 
     @Override
     public List<Train> fetchTrains() {
         // TODO Auto-generated method stub
-        return AdminRepository.getTrains();
+        return adminRepository.getTrains();
     }
 
 

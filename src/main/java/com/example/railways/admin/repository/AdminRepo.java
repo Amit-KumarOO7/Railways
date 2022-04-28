@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 public interface AdminRepo extends JpaRepository<AdminDetails,Long> {
 
 	
-	@Query("SELECT * FROM AdminDetails a WHERE a.adminUsername = ?1")
+	@Query("SELECT a FROM AdminDetails a WHERE a.adminUsername = ?1")
 	AdminDetails getAdminByUsername(String username);
 
 	

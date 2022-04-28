@@ -8,22 +8,69 @@ import lombok.Setter;
 
 import java.util.Date;
 
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class UserCreatedResponse {
-    private @Getter
-    @Setter
+    private 
+    
     Date timestamp;
 
-    private @Getter
-    @Setter
+    private 
+    
     String message;
 
-    private @Getter
-    @Setter
+    private 
+    
     String status;
 
-    private @Getter
-    @Setter
+    private 
+    
     UserDetails result;
+
+	public UserCreatedResponse() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public UserCreatedResponse(Date timestamp, String message, String status, UserDetails result) {
+		super();
+		this.timestamp = timestamp;
+		this.message = message;
+		this.status = status;
+		this.result = result;
+	}
+
+	public Date getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Date timestamp) {
+		this.timestamp = timestamp;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public UserDetails getResult() {
+		return result;
+	}
+
+	public void setResult(UserDetails result) {
+		this.result = result;
+	}
+    
+    
+    
 }
