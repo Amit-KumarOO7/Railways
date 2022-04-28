@@ -1,14 +1,8 @@
 package com.example.railways.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Entity
 @Table(name = "tickets")
 public class TicketDetails {
