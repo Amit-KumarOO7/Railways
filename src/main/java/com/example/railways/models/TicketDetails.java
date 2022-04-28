@@ -24,7 +24,7 @@ public class TicketDetails {
 
     private String tbDestination;
 
-    private int tbStatus;
+    private String tbStatus;
 
     public int getuId() {
         return uId;
@@ -38,11 +38,11 @@ public class TicketDetails {
         this.tbId = tbId;
     }
 
-    public int getTbStatus() {
+    public String getTbStatus() {
         return tbStatus;
     }
 
-    public void setTbStatus(int tbStatus) {
+    public void setTbStatus(String tbStatus) {
         this.tbStatus = tbStatus;
     }
 

@@ -33,6 +33,7 @@ public class DeleteTicketController {
             ErrorResponse response = new ErrorResponse(new Date(), "Ticket does not exist", "400");
             return new ResponseEntity<Object>(response, HttpStatus.OK);
         }
+
         ticketService.deleteTicket(ticketDetails.getuId(), ticketDetails.getTbId());
         TicketDeleteResponse response = new TicketDeleteResponse(new Date(), "Ticket deleted Successfully", "200");
         return new ResponseEntity<Object>(response, HttpStatus.OK);
