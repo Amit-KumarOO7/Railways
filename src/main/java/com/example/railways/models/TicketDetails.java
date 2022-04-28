@@ -1,24 +1,16 @@
 package com.example.railways.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+
+import javax.persistence.*;
+
 
 @Entity
 @Table(name = "tickets")
 public class TicketDetails {
-
-    public TicketDetails(int tbId, int uId, int trainNumber, String tbSource, String tbDestination, String tbStatus) {
-        this.tbId = tbId;
-        this.uId = uId;
-        this.trainNumber = trainNumber;
-        this.tbSource = tbSource;
-        this.tbDestination = tbDestination;
-        this.tbStatus = tbStatus;
-    }
-
-    public TicketDetails() {
-    }
-
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     private int tbId;
 
     private int uId;
@@ -30,6 +22,19 @@ public class TicketDetails {
     private String tbDestination;
 
     private String tbStatus;
+    
+    public TicketDetails(int tbId, int uId, int trainNumber, String tbSource, String tbDestination, String tbStatus) {
+        this.tbId = tbId;
+        this.uId = uId;
+        this.trainNumber = trainNumber;
+        this.tbSource = tbSource;
+        this.tbDestination = tbDestination;
+        this.tbStatus = tbStatus;
+    }
+
+    public TicketDetails() {
+    }
+    
 
     public int getuId() {
         return uId;
