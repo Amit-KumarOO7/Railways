@@ -15,17 +15,27 @@ public class TicketDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private @Getter @Setter int tbId;
+    private @Getter 
+    @Setter 
+    int tbId;
 
     @Column
-    private @Getter @Setter int uId;
+    private  @Getter 
+    @Setter 
+    int uId;
 
     @Column
-    private @Getter @Setter String tbSource;
+    private @Getter 
+    @Setter 
+    String tbSource;
 
     @Column
-    private @Getter @Setter String tbDestination;
+    private @Getter
+     @Setter 
+     String tbDestination;
 
     @Column
-    private @Getter @Setter int tbStatus;
+    private @Getter 
+    @Setter 
+    int tbStatus;
 }
