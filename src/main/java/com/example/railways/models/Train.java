@@ -15,7 +15,22 @@ public class Train {
     private String destination;
     private String arrival;
     private String departure;
+    private int availableSeats;
+
     
+    public String getDestination() {
+        return destination;
+    }
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+    
+    public int getAvailableSeats() {
+        return availableSeats;
+    }
+    public void setAvailableSeats(int availableSeats) {
+        this.availableSeats = availableSeats;
+    }
     public int getTrainNumber() {
         return trainNumber;
     }
