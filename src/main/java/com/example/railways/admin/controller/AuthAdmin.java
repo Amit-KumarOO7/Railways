@@ -46,12 +46,22 @@ public class AuthAdmin {
 
 
     @PostMapping("deleteAdmin")
-    public void deleteAdmin(@RequestBody String username){
-    	 adminService.deleteAdmin(username);
+    public String deleteAdmin(@RequestBody AdminDetails admin){
+    	
+    	 adminService.deleteAdmin(admin.getAdminUsername());
+    	 return "Deleted Successfully";
     	 	
     }
     
     
+    @PostMapping("undeleteAdmin")
+    public String undeleteAdmin(@RequestBody AdminDetails admin){
+    	
+    	 adminService.undeleteAdmin(admin.getAdminUsername());
+    	 
+    	 return "Undeleted Successfully";
+    	 	
+    }
     	
 
     }

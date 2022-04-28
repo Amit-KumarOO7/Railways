@@ -64,6 +64,12 @@ public class AdminDetails {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	@Override
+	public String toString() {
+		return "AdminDetails [adminId=" + adminId + ", adminUsername=" + adminUsername + ", adminPassword="
+				+ adminPassword + ", status=" + status + "]";
+	}
 	
     
 
