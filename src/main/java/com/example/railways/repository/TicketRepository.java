@@ -16,5 +16,6 @@ public interface TicketRepository extends JpaRepository<TicketDetails, Long> {
     TicketDetails deleteTicket(int uId, int tbId);
 
     
+    
 
 }
