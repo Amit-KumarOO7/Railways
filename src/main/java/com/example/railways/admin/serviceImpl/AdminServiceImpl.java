@@ -36,10 +36,23 @@ public class AdminServiceImpl implements AdminService {
 	public void deleteAdmin(String username) {
 		// TODO Auto-generated method stub
 		AdminDetails admin = adminRepo.getAdminByUsername(username);
+		//System.out.println(username);
+		
 		if (admin==null) {
 			throw new InvalidRequestException("Admin doesnt exist by that username");
 		}
 		  adminRepo.deleteAdmin(admin.getAdminId(),0);
+	}
+
+	@Override
+	public void undeleteAdmin(String username) {
+		
+		AdminDetails admin = adminRepo.getAdminByUsername(username);
+		if (admin==null) {
+			throw new InvalidRequestException("Admin doesnt exist by that username");
+		}
+		  adminRepo.deleteAdmin(admin.getAdminId(),1);
+		
 	}
 	
 
