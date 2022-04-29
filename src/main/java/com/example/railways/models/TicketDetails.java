@@ -7,15 +7,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tickets")
 public class TicketDetails {
-<<<<<<< Updated upstream
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    
-=======
 
     @Id
->>>>>>> Stashed changes
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int tbId;
 
     private int uId;
@@ -27,7 +22,7 @@ public class TicketDetails {
     private String tbDestination;
 
     private int tbStatus;
-    
+
     public TicketDetails(int tbId, int uId, int trainNumber, String tbSource, String tbDestination, int tbStatus) {
         this.tbId = tbId;
         this.uId = uId;
@@ -39,10 +34,14 @@ public class TicketDetails {
 
     public TicketDetails() {
     }
-    
+
 
     public int getuId() {
         return uId;
+    }
+
+    public void setuId(int uId) {
+        this.uId = uId;
     }
 
     public int getTbId() {
@@ -83,9 +82,5 @@ public class TicketDetails {
 
     public void setTrainNumber(int trainNumber) {
         this.trainNumber = trainNumber;
-    }
-
-    public void setuId(int uId) {
-        this.uId = uId;
     }
 }

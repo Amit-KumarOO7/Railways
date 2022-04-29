@@ -3,7 +3,8 @@
  */
 package com.example.railways.controler;
 
-import com.example.railways.entities.PaymentRequestEntity;
+import com.example.railways.entities.GetPaymentRequestEntity;
+import com.example.railways.entities.MakePaymentRequestEntity;
 import com.example.railways.models.PaymentModel;
 import com.example.railways.repository.PaymentRepository;
 import org.json.JSONObject;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Random;
 
 @RestController
@@ -22,14 +24,14 @@ public class PaymentController {
     private PaymentRepository paymentRepository;
 
     @PostMapping("/make-payment")
-    public String makePayment(@RequestBody PaymentRequestEntity paymentRequestEntity) {
+    public String makePayment(@RequestBody MakePaymentRequestEntity makePaymentRequestEntity) {
         PaymentModel paymentModel = new PaymentModel();
 
         paymentModel.payment_id = getRandomString();
-//        paymentModel.ticket_id = getRandomString();
-        paymentModel.u_id = paymentRequestEntity.u_id;
-        paymentModel.amount = paymentRequestEntity.amount;
-        paymentModel.payment_method = paymentRequestEntity.payment_method;
+        paymentModel.u_id = makePaymentRequestEntity.u_id;
+        paymentModel.amount = makePaymentRequestEntity.amount;
+        paymentModel.ticket_id = makePaymentRequestEntity.ticket_id;
+        paymentModel.payment_method = makePaymentRequestEntity.payment_method;
 
         if (getPaymentSuccess()) {
             paymentModel.success = 1;
@@ -40,9 +42,17 @@ public class PaymentController {
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("payment_id", paymentModel.payment_id);
-//        jsonObject.put("ticket_id", paymentModel.ticket_id);
         jsonObject.put("success", paymentModel.success);
 
+        return jsonObject.toString();
+    }
+
+    @PostMapping("/get-payment")
+    public String getPayments(@RequestBody GetPaymentRequestEntity getPaymentRequestEntity) {
+        List<PaymentModel> paymentList = paymentRepository.getPaymentList(getPaymentRequestEntity.payment_id, getPaymentRequestEntity.u_id);
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("payments", paymentList);
         return jsonObject.toString();
     }
 
