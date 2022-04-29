@@ -56,7 +56,7 @@ public class PaymentController {
     @PostMapping("/get-payments")
     public String getPayments(@RequestBody GetPaymentRequestEntity getPaymentRequestEntity) {
         validations.getPaymentsValidation(getPaymentRequestEntity);
-        List<PaymentModel> paymentList = paymentRepository.getPaymentList(getPaymentRequestEntity.payment_id, getPaymentRequestEntity.u_id);
+        List<PaymentModel> paymentList = paymentRepository.getPaymentList(getPaymentRequestEntity.ticket_id, getPaymentRequestEntity.u_id);
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("payments", paymentList);

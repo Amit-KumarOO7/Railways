@@ -10,6 +10,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface PaymentRepository extends JpaRepository<PaymentModel, Long> {
-    @Query(value = "SELECT record FROM payments WHERE record.payment_id=?1 AND record.u_id=?2", nativeQuery = true)
-    List<PaymentModel> getPaymentList(String payment_id, String u_id);
+    @Query(value = "SELECT record FROM payments WHERE record.ticket_id=?1 AND record.u_id=?2", nativeQuery = true)
+    List<PaymentModel> getPaymentList(String ticket_id, String u_id);
 }
