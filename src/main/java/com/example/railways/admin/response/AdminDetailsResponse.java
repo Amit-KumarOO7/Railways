@@ -7,7 +7,7 @@ import java.util.Date;
 public class AdminDetailsResponse {
 
     private Date date;
-    private String messageString;
+    private String message;
     private AdminDetails admin;
 
     public Date getDate() {
@@ -18,12 +18,12 @@ public class AdminDetailsResponse {
         this.date = date;
     }
 
-    public String getMessageString() {
-        return messageString;
+    public String getmessage() {
+        return message;
     }
 
-    public void setMessageString(String messageString) {
-        this.messageString = messageString;
+    public void setmessage(String message) {
+        this.message = message;
     }
 
     public AdminDetails getAdmin() {
@@ -34,10 +34,10 @@ public class AdminDetailsResponse {
         this.admin = admin;
     }
 
-    public AdminDetailsResponse(Date date, String messageString, AdminDetails admin) {
+    public AdminDetailsResponse(Date date, String message, AdminDetails admin) {
         super();
         this.date = date;
-        this.messageString = messageString;
+        this.message = message;
         this.admin = admin;
     }
 

@@ -59,6 +59,19 @@ public class AdminServiceImpl implements AdminService {
 		  adminRepo.deleteAdmin(admin.getAdminId(),1);
 		
 	}
+	@Override
+	public AdminDetails adminLogin(AdminDetails admin) {
+	
+			AdminDetails fetchadmin = adminRepo.getAdminByUsername(admin.getAdminUsername());
+			if (fetchadmin==null) {
+				throw new InvalidRequestException("Admin doesnt exist by that username");
+			}
+			if(admin.getAdminPassword().equals(fetchadmin.getAdminPassword()))
+					return admin;
+				
+			throw new InvalidRequestException("Incorrect password");	
+			
+	}
 	
 
 }

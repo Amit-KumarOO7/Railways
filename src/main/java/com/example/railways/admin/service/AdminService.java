@@ -13,4 +13,6 @@ public interface AdminService {
     public void deleteAdmin(String username);
 
 	public void undeleteAdmin(String adminUsername);
+
+	public AdminDetails adminLogin(AdminDetails admin);
 }
