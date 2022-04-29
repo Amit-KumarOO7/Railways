@@ -2,7 +2,7 @@ package com.example.railways.admin.controller;
 
 import com.example.railways.admin.model.AdminDetails;
 import com.example.railways.admin.response.AdminDetailsResponse;
-import com.example.railways.admin.response.AdminLoginResponse;
+//import com.example.railways.admin.response.AdminLoginResponse;
 import com.example.railways.admin.service.AdminService;
 
 import com.example.railways.utils.Validations;
@@ -64,16 +64,16 @@ public class AuthAdmin {
     	 	
     }
     
-    @PostMapping("adminLogin")
-    public ResponseEntity<Object> adminLogin(@RequestBody AdminDetails admin)
-    {
-    	validation.adminValidation(admin);
-    	 AdminDetails fetchAdmin = adminService.adminLogin(admin);
-    	 AdminLoginResponse res = new AdminLoginResponse(new Date(),"Log In Successfull",admin);
-    	 
-    	 return new  ResponseEntity<Object>(res,HttpStatus.OK);
-    
-    }
+//    @PostMapping("adminLogin")
+//    public ResponseEntity<Object> adminLogin(@RequestBody AdminDetails admin)
+//    {
+//    	validation.adminValidation(admin);
+//    	 AdminDetails fetchAdmin = adminService.adminLogin(admin);
+//    	 AdminLoginResponse res = new AdminLoginResponse(new Date(),"Log In Successfull",admin);
+//
+//    	 return new  ResponseEntity<Object>(res,HttpStatus.OK);
+//
+//    }
 
     }
 

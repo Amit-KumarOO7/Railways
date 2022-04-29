@@ -59,6 +59,11 @@ public class GetController {
     @GetMapping("/getSeatsAvailable")
     public ResponseEntity<Object> getSeatsAvailable(@RequestBody Train trainDetails) {
         int trainNumber = trainDetails.getTrainNumber();
+        if(trainNumber == 0){
+            ErrorResponse response = new ErrorResponse(new Date(), "Fill all the details", "409");
+            return new ResponseEntity<Object>(response, HttpStatus.OK);
+        }
+
         Train train = trainService.fetchTrainsByTrainNumber(trainNumber);
         if(train == null){
             ErrorResponse response = new ErrorResponse(new Date(), "Train doesn't exist", "409");
