@@ -7,6 +7,7 @@ import com.example.railways.entities.GetPaymentRequestEntity;
 import com.example.railways.entities.MakePaymentRequestEntity;
 import com.example.railways.models.PaymentModel;
 import com.example.railways.repository.PaymentRepository;
+import com.example.railways.utils.Validations;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,10 +22,15 @@ import java.util.Random;
 public class PaymentController {
 
     @Autowired
+    private Validations validations;
+
+    @Autowired
     private PaymentRepository paymentRepository;
 
     @PostMapping("/make-payment")
     public String makePayment(@RequestBody MakePaymentRequestEntity makePaymentRequestEntity) {
+        validations.makePaymentValidation(makePaymentRequestEntity);
+
         PaymentModel paymentModel = new PaymentModel();
 
         paymentModel.payment_id = getRandomString();
@@ -49,6 +55,7 @@ public class PaymentController {
 
     @PostMapping("/get-payments")
     public String getPayments(@RequestBody GetPaymentRequestEntity getPaymentRequestEntity) {
+        validations.getPaymentsValidation(getPaymentRequestEntity);
         List<PaymentModel> paymentList = paymentRepository.getPaymentList(getPaymentRequestEntity.payment_id, getPaymentRequestEntity.u_id);
 
         JSONObject jsonObject = new JSONObject();

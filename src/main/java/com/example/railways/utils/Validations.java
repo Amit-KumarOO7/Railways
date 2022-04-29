@@ -1,6 +1,8 @@
 package com.example.railways.utils;
 
 import com.example.railways.admin.model.AdminDetails;
+import com.example.railways.entities.GetPaymentRequestEntity;
+import com.example.railways.entities.MakePaymentRequestEntity;
 import com.example.railways.exceptions.InvalidRequestException;
 import com.example.railways.models.RouteDetails;
 import com.example.railways.models.UserDetails;
@@ -79,5 +81,22 @@ public class Validations {
             throw new InvalidRequestException("Invalid Username");
         if (admin.getAdminPassword().length() < 8)
             throw new InvalidRequestException("Password must be 8 or more characters");
+    }
+
+    public void makePaymentValidation(MakePaymentRequestEntity makePaymentRequestEntity) {
+        if (makePaymentRequestEntity.u_id == null || makePaymentRequestEntity.u_id.isEmpty())
+            throw new InvalidRequestException("Invalid uid");
+        if (makePaymentRequestEntity.ticket_id == null || makePaymentRequestEntity.ticket_id.isEmpty())
+            throw new InvalidRequestException("Invalid ticket id");
+        if (makePaymentRequestEntity.payment_method == null || makePaymentRequestEntity.payment_method.isEmpty())
+            throw new InvalidRequestException("Invalid payment method");
+        if (makePaymentRequestEntity.amount == 0) throw new InvalidRequestException("Invalid ticket amount");
+    }
+
+    public void getPaymentsValidation(GetPaymentRequestEntity getPaymentRequestEntity) {
+        if (getPaymentRequestEntity.u_id == null || getPaymentRequestEntity.u_id.isEmpty())
+            throw new InvalidRequestException("Invalid uid");
+        if (getPaymentRequestEntity.payment_id == null || getPaymentRequestEntity.payment_id.isEmpty())
+            throw new InvalidRequestException("Invalid payment id");
     }
 }
