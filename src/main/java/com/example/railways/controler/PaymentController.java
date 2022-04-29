@@ -47,7 +47,7 @@ public class PaymentController {
         return jsonObject.toString();
     }
 
-    @PostMapping("/get-payment")
+    @PostMapping("/get-payments")
     public String getPayments(@RequestBody GetPaymentRequestEntity getPaymentRequestEntity) {
         List<PaymentModel> paymentList = paymentRepository.getPaymentList(getPaymentRequestEntity.payment_id, getPaymentRequestEntity.u_id);
 

@@ -1,6 +1,5 @@
 package com.example.railways.utils;
 
-
 import com.example.railways.admin.model.AdminDetails;
 import com.example.railways.exceptions.InvalidRequestException;
 import com.example.railways.models.RouteDetails;
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class Validations {
-
 
     public void addRouteValidations(RouteDetails routeDetails) {
         if (routeDetails.getFromId().getpId() <= 0) {
@@ -81,7 +79,5 @@ public class Validations {
             throw new InvalidRequestException("Invalid Username");
         if (admin.getAdminPassword().length() < 8)
             throw new InvalidRequestException("Password must be 8 or more characters");
-
     }
-
 }
