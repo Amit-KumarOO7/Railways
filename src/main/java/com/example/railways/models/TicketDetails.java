@@ -7,7 +7,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tickets")
 public class TicketDetails {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int tbId;
