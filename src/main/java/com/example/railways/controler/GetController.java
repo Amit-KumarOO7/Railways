@@ -60,7 +60,7 @@ public class GetController {
     public ResponseEntity<Object> getSeatsAvailable(@RequestBody Train trainDetails) {
         int trainNumber = trainDetails.getTrainNumber();
         if(trainNumber == 0){
-            ErrorResponse response = new ErrorResponse(new Date(), "Fill all the details", "409");
+            ErrorResponse response = new ErrorResponse(new Date(), "Enter train number as trainNumber", "409");
             return new ResponseEntity<Object>(response, HttpStatus.OK);
         }
 
