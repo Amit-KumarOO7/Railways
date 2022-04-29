@@ -23,10 +23,15 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public AdminDetails createAdmin(AdminDetails admin) {
+    	try {
         adminRepo.save(admin);
         return admin;
     }
-
+    catch(Exception e) {
+    	throw new InvalidRequestException("Admin already Exists");
+    	
+    }
+    }
 	@Override
 	public ArrayList<AdminDetails> getAdmins() {
 		return  (ArrayList<AdminDetails>) adminRepo.findAll();
