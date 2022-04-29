@@ -11,4 +11,6 @@ public interface AdminService {
     public ArrayList<AdminDetails> getAdmins();
 
     public void deleteAdmin(String username);
+
+	public void undeleteAdmin(String adminUsername);
 }
