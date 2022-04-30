@@ -96,7 +96,7 @@ public class Validations {
     public void getPaymentsValidation(GetPaymentRequestEntity getPaymentRequestEntity) {
         if (getPaymentRequestEntity.u_id == null || getPaymentRequestEntity.u_id.isEmpty())
             throw new InvalidRequestException("Invalid uid");
-        if (getPaymentRequestEntity.payment_id == null || getPaymentRequestEntity.payment_id.isEmpty())
+        if (getPaymentRequestEntity.ticket_id == null || getPaymentRequestEntity.ticket_id.isEmpty())
             throw new InvalidRequestException("Invalid payment id");
     }
 }

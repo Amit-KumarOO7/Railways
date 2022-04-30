@@ -1,15 +1,8 @@
 package com.example.railways.controler;
 
-import com.example.railways.models.PlaceDetails;
-import com.example.railways.models.RouteDetails;
-import com.example.railways.models.Train;
-import com.example.railways.response.ErrorResponse;
-import com.example.railways.response.GetPlaceResponse;
-import com.example.railways.response.GetRouteResponse;
-import com.example.railways.response.SeatsAvailableResponse;
-import com.example.railways.service.PlaceService;
-import com.example.railways.service.RouteService;
-import com.example.railways.service.TrainService;
+import com.example.railways.models.*;
+import com.example.railways.response.*;
+import com.example.railways.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +23,12 @@ public class GetController {
 
     @Autowired
     TrainService trainService;
+
+    @Autowired
+    TicketService ticketService;
+
+    @Autowired
+    UserService userService;
 
     @GetMapping("/getPlaces")
     public ResponseEntity<Object> getPlaces() {
@@ -73,4 +72,21 @@ public class GetController {
         SeatsAvailableResponse response = new SeatsAvailableResponse(new Date(),"Get Seats Available Successful","200",available);
         return new ResponseEntity<Object>(response,HttpStatus.OK);
     }
+    @GetMapping("/myTickets")
+    public ResponseEntity<Object> getMyTickets(@RequestBody UserDetails trainDetails) {
+        int uId = trainDetails.getuId();
+        if(uId == 0){
+            ErrorResponse response = new ErrorResponse(new Date(), "Enter UserID as uId", "409");
+            return new ResponseEntity<Object>(response, HttpStatus.OK);
+        }
+        UserDetails user = userService.fetchUserByUserId(uId);
+        if(user == null){
+            ErrorResponse response = new ErrorResponse(new Date(), "User doesn't exist", "409");
+            return new ResponseEntity<Object>(response, HttpStatus.OK);
+        }
+        List<TicketDetails> myTickets = ticketService.fetchTicket(uId);
+        getMyTicketsResponse response = new getMyTicketsResponse(new Date(),"Get My Tickets Successful","200",myTickets);
+        return new ResponseEntity<Object>(response,HttpStatus.OK);
+    }
+
 }
