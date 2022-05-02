@@ -1,6 +1,7 @@
 package com.example.railways.controler;
 
 import com.example.railways.models.*;
+import com.example.railways.repository.UserRepository;
 import com.example.railways.response.*;
 import com.example.railways.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,9 @@ public class GetController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    UserRepository userRepository;
 
     @GetMapping("/getPlaces")
     public ResponseEntity<Object> getPlaces() {
@@ -73,8 +77,8 @@ public class GetController {
         return new ResponseEntity<Object>(response,HttpStatus.OK);
     }
     @GetMapping("/myTickets")
-    public ResponseEntity<Object> getMyTickets(@RequestBody UserDetails trainDetails) {
-        int uId = trainDetails.getuId();
+    public ResponseEntity<Object> getMyTickets(@RequestBody UserDetails userDetails) {
+        int uId = userDetails.getuId();
         if(uId == 0){
             ErrorResponse response = new ErrorResponse(new Date(), "Enter UserID as uId", "409");
             return new ResponseEntity<Object>(response, HttpStatus.OK);
@@ -87,6 +91,13 @@ public class GetController {
         List<TicketDetails> myTickets = ticketService.fetchTicket(uId);
         getMyTicketsResponse response = new getMyTicketsResponse(new Date(),"Get My Tickets Successful","200",myTickets);
         return new ResponseEntity<Object>(response,HttpStatus.OK);
+    }
+
+    @GetMapping("/allUsers")
+    public ResponseEntity<Object> getAllUsers() {
+        List<UserDetails> users = userRepository.findAll();
+        AllUserReponse allUserReponse = new AllUserReponse("Users retrieved", HttpStatus.OK.value(), users);
+        return new ResponseEntity<Object>(allUserReponse, HttpStatus.OK);
     }
 
 }
