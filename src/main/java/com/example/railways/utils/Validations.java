@@ -85,18 +85,18 @@ public class Validations {
 
     public void makePaymentValidation(MakePaymentRequestEntity makePaymentRequestEntity) {
         if (makePaymentRequestEntity.u_id == null || makePaymentRequestEntity.u_id.isEmpty())
-            throw new InvalidRequestException("Invalid uid");
+            throw new InvalidRequestException("invalid uid");
         if (makePaymentRequestEntity.ticket_id == null || makePaymentRequestEntity.ticket_id.isEmpty())
-            throw new InvalidRequestException("Invalid ticket id");
+            throw new InvalidRequestException("invalid ticket id");
         if (makePaymentRequestEntity.payment_method == null || makePaymentRequestEntity.payment_method.isEmpty())
-            throw new InvalidRequestException("Invalid payment method");
+            throw new InvalidRequestException("invalid payment method");
         if (makePaymentRequestEntity.amount == 0) throw new InvalidRequestException("Invalid ticket amount");
     }
 
     public void getPaymentsValidation(GetPaymentRequestEntity getPaymentRequestEntity) {
         if (getPaymentRequestEntity.u_id == null || getPaymentRequestEntity.u_id.isEmpty())
-            throw new InvalidRequestException("Invalid uid");
+            throw new InvalidRequestException("invalid uid");
         if (getPaymentRequestEntity.ticket_id == null || getPaymentRequestEntity.ticket_id.isEmpty())
-            throw new InvalidRequestException("Invalid payment id");
+            throw new InvalidRequestException("invalid payment id");
     }
 }
