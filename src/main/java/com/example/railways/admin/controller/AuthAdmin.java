@@ -64,16 +64,16 @@ public class AuthAdmin {
     	 	
     }
     
-//    @PostMapping("adminLogin")
-//    public ResponseEntity<Object> adminLogin(@RequestBody AdminDetails admin)
-//    {
-//    	validation.adminValidation(admin);
-//    	 AdminDetails fetchAdmin = adminService.adminLogin(admin);
-//    	 AdminLoginResponse res = new AdminLoginResponse(new Date(),"Log In Successfull",admin);
-//
-//    	 return new  ResponseEntity<Object>(res,HttpStatus.OK);
-//
-//    }
+    @PostMapping("adminLogin")
+    public ResponseEntity<Object> adminLogin(@RequestBody AdminDetails admin)
+    {
+    	validation.adminValidation(admin);
+    	 AdminDetails fetchAdmin = adminService.adminLogin(admin);
+    	 AdminLoginResponse res = new AdminLoginResponse(new Date(),"Log In Successfull",admin);
+
+   	 return new  ResponseEntity<Object>(res,HttpStatus.OK);
+
+    }
 
     }
 
