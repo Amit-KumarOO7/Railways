@@ -10,24 +10,29 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
-    UserRepository authRepository;
+    UserRepository userRepository;
 
     @Autowired
     PasswordEncoder encoder;
 
-    @Override
-    public UserDetails fetchUserByUserId(int uId) {
-        return authRepository.fetchByUserID(uId);
-    }
+    // @Override
+    // public UserDetails fetchUserByUserId(int uId) {
+    //     return userRepository.fetchByUserID(uId);
+    // }
 
     @Override
     public UserDetails createUser(UserDetails userDetails) {
         userDetails.setuPassword(encoder.encode(userDetails.getuPassword()));
-        return authRepository.save(userDetails);
+        return userRepository.save(userDetails);
+    }
+
+    @Override
+    public UserDetails fetchById(int uId) {
+        return userRepository.fetchById(uId);
     }
 
     @Override
     public UserDetails fetchByEmail(String emailId) {
-        return authRepository.fetchByEmail(emailId);
+        return userRepository.fetchByEmail(emailId);
     }
 }

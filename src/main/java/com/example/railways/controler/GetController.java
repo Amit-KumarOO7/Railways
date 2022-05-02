@@ -79,7 +79,7 @@ public class GetController {
             ErrorResponse response = new ErrorResponse(new Date(), "Enter UserID as uId", "409");
             return new ResponseEntity<Object>(response, HttpStatus.OK);
         }
-        UserDetails user = userService.fetchUserByUserId(uId);
+        UserDetails user = userService.fetchById(uId);
         if(user == null){
             ErrorResponse response = new ErrorResponse(new Date(), "User doesn't exist", "409");
             return new ResponseEntity<Object>(response, HttpStatus.OK);

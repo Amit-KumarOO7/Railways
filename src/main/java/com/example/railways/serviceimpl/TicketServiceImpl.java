@@ -7,12 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class TicketServiceImpl implements TicketService {
     @Autowired
     TicketRepository ticketRepository;
+
+    @Override
+    public void bookTicket(TicketDetails ticketDetails) {
+        ticketRepository.save(ticketDetails);
+    }
 
     @Override
     public ArrayList<TicketDetails> fetchTicket(int uId) {
@@ -25,8 +29,5 @@ public class TicketServiceImpl implements TicketService {
         ticketRepository.deleteTicket(uId, tbId);
 
     }
-
-
-
 
 }
